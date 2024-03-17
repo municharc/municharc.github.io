@@ -69,6 +69,25 @@ title: The Sheep Vote
 	</blockquote>
 </div>
 
+<div class="container">
+	<h2 class="editable">Past Events</h2>
+	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a></p>
+	<div class="posts">
+		{% for post in site.posts %}
+			<div class="post">
+				<div class="image" style="background-image: url({{ post.featured_image}})"></div>
+				<div class="post-content">
+					<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
+					<h3>{{ post.title }}</h3>
+
+					{{ post.content }}
+					<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
 <div class="darker" id="join">
 	<div class="container">
 		<h2 class="editable">Join us</h2>
@@ -84,26 +103,5 @@ title: The Sheep Vote
 	<h2 class="editable">Make a donation</h2>
 	<div class="donate">
 		{{ site.donation_embed }}
-	</div>
-</div>
-
-<div class="darker">
-	<div class="container">
-		<h2 class="editable">Updates</h2>
-		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a></p>
-		<div class="posts">
-			{% for post in site.posts %}
-				<div class="post">
-					<div class="image" style="background-image: url({{ post.featured_image}})"></div>
-					<div class="post-content">
-						<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
-						<h3>{{ post.title }}</h3>
-
-						{{ post.content }}
-						<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
 	</div>
 </div>
