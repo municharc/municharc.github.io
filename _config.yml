@@ -1,7 +1,7 @@
 # ----
 # Site
 
-title: Cause Template
+title: MARC
 url: https://clean-oryx.cloudvent.net
 baseurl:
 google_analytics_key:
@@ -14,7 +14,7 @@ author:
   email:
   twitter: # twitter username without the @ symbol
 social:
-  name: Cause Template
+  name: MARC
   links:
     - https://github.com/CloudCannon/cause-jekyll-template
 

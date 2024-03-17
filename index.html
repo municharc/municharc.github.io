@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Sheep Vote
+title: Welcome
 ---
 <header>
 	<div class="container">
@@ -8,8 +8,13 @@ title: The Sheep Vote
 			<div>
 				<h1 class="editable">Munich Animal Rights Club</h1>
 				<p class="editable">A student club that cares for all animals.</p>
-				<div class="button">
-					<a href="#join">Join us</a>
+				<div class="button-container">
+					<div class="button">
+						<a href="#join">Join us</a>
+					</div>
+					<div class="button" id="about">
+						<a href="{{ site.baseurl }}/about.html">About us</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -24,49 +29,35 @@ title: The Sheep Vote
 
 	<ul class="thirds">
 		<li>
-			<div class="image">{% include icons/site.html icon="population" %}</div>
-			<h3 class="editable">Info events</h3>
+			<div class="image">
+				<img src="images/info-icon.svg" height="64px" width="64px"/>
+			</div>
+			<h3 class="editable">Info Events</h3>
 			<p class="editable">TODO </p>
 		</li>
 
 		<li>
-			<div class="image">{% include icons/site.html icon="economy" %}</div>
+			<div class="image">
+				<img src="images/activism-icon.svg" height="64px" width="64px">
+			</div>
 			<h3 class="editable">Activism</h3>
 			<p class="editable">TODO</p>
 		</li>
 
 		<li>
-			<div class="image">{% include icons/site.html icon="conditions" %}</div>
+			<div class="image">
+				{% include icons/site.html icon="population" %}
+			</div>
 			<h3 class="editable">Socials</h3>
 			<p class="editable">TODO</p>
 		</li>
 	</ul>
 </div>
 
-<div class="container">
-	<div class="columns">
-		<div>
-			<img src="{{ site.baseurl }}/images/sheep2.jpg" alt="Sheep">
-		</div>
-		<div>
-			<h2 class="editable">Our Mission</h2>
-
-			<p class="editable">Leave no sheep behind. Our mission to give sheep the right to vote and have them represented in parliament. For too long sheep have been exploited for their warm wool and delicious meat. It's time to put our hooves down and baa for what's right. Give sheep the vote!</p>
-		</div>
+<div class="darker" id="next-event">
+	<div class="container">
+		<h2 class="editable">Next Event</h2>
 	</div>
-</div>
-
-<div class="container">
-	<hr>
-	<blockquote>
-		<p class="quote editable">The ultimate measure of a sheep is not where he stands in moments of comfort and convenience, but where he stands at times of challenge and controversy.</p>
-		<div class="attribute">
-			<p class="meta">
-				<span class="image"><img class="editable" src="{{ site.baseurl }}/images/wooly.jpg" alt="Wooly"></span>
-				<span class="author editable"><strong>Wooly McBaa</strong></span>
-			</p>
-		</div>
-	</blockquote>
 </div>
 
 <div class="container">
@@ -98,10 +89,4 @@ title: The Sheep Vote
 		</form>
 	</div>
 </div>
-
-<div class="container">
-	<h2 class="editable">Make a donation</h2>
-	<div class="donate">
-		{{ site.donation_embed }}
-	</div>
 </div>
