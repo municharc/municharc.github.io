@@ -30,7 +30,7 @@ title: Welcome
 	<ul class="thirds">
 		<li>
 			<div class="image">
-				<img src="images/info-icon.svg" height="64px" width="64px"/>
+				<img src="images/info-icon.svg" height="64px" width="64px" />
 			</div>
 			<h3 class="editable">Info Events</h3>
 			<p class="editable">TODO </p>
@@ -60,21 +60,32 @@ title: Welcome
 	</div>
 </div>
 
+
+
+{% jekyllgram 9 %}
+<a text-align="center" href="{{ photo.permalink }}" title="{{ photo.caption }}" id="IG-{{ photo.id }}">
+	<img src="{{ photo.media_url }}" title="{{ photo.caption }}" width="250" height="250" />
+</a>
+{% endjekyllgram %}
+
+
 <div class="container">
 	<h2 class="editable">Past Events</h2>
-	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a></p>
+	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a>
+	</p>
 	<div class="posts">
 		{% for post in site.posts %}
-			<div class="post">
-				<div class="image" style="background-image: url({{ post.featured_image}})"></div>
-				<div class="post-content">
-					<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
-					<h3>{{ post.title }}</h3>
+		<div class="post">
+			<div class="image" style="background-image: url({{ post.featured_image}})"></div>
+			<div class="post-content">
+				<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
+				<h3>{{ post.title }}</h3>
 
-					{{ post.content }}
-					<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
-				</div>
+				{{ post.content }}
+				<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}"
+						class="btn"><strong>&#9998;</strong> Edit Update</a></p>
 			</div>
+		</div>
 		{% endfor %}
 	</div>
 </div>
@@ -82,10 +93,11 @@ title: Welcome
 <div class="darker" id="join">
 	<div class="container">
 		<h2 class="editable">Join us</h2>
-		<p class="editable" style="text-align: center;">Sign up to hear the latest news and progress in our fight for the sheep vote.</p>
+		<p class="editable" style="text-align: center;">Sign up to hear the latest news and progress in our fight for
+			the sheep vote.</p>
 		<form action="{{ site.newsletter_action }}" method="post">
 			<input type="text" name="EMAIL" placeholder="Email">
-			<input type="submit" value="Sign up"/>
+			<input type="submit" value="Sign up" />
 		</form>
 	</div>
 </div>
