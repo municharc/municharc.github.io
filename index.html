@@ -54,13 +54,26 @@ title: Welcome
 	</ul>
 </div>
 
-<div class="darker" id="next-event">
-	<div class="container">
-		<h2 class="editable">Next Event</h2>
+<div class="darker">
+	<div class="container" id="next-event" style=
+		"display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;">
+		<h2>Join us at our next event!</h2>
+		<div class="image">
+			<img src="images/events/example.png" height="324px" width="248px" />
+		</div>
+		<div class="next-event-info" style=
+			"margin-top: 20px;
+			text-align: center;">
+			<a style="color: #20ca5a;"><h3>Swap Party</h3></a>
+			<p>Saturday, 12th May</p>
+			<p>17:00 - 20:00</p>
+			<p>Arcisstrasse 21</p>
+		</div>
 	</div>
 </div>
-
-
 
 {% jekyllgram 9 %}
 <a text-align="center" href="{{ photo.permalink }}" title="{{ photo.caption }}" id="IG-{{ photo.id }}">
