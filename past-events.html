@@ -1,0 +1,25 @@
+---
+layout: default
+title: Past Events
+permalink: /past-events.html
+---
+
+<!--Create a list of posts from _posts using jekyll-->
+<div class="container">
+	<h2>Past Events</h2>
+	<div class="posts">
+		{% for post in site.posts %}
+		<div class="post">
+			<a href="{{ post.url }}"><div class="image" style="background-image: url({{ post.featured_image}})"></div></a>
+			<div class="post-content">
+				<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
+				<h3>{{ post.title }}</h3>
+				<p class="post-teaser">{{ post.teaser }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div style=" text-align: right;">
+		<a href="{{ site.baseurl }}/past-events" style="color: #20ca5a;">See more..</a>
+	</div>
+</div>

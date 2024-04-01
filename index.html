@@ -13,7 +13,7 @@ title: Welcome
 						<a href="#join">Join us</a>
 					</div>
 					<div class="button" id="about">
-						<a href="{{ site.baseurl }}/about.html">About us</a>
+						<a href="{{ site.baseurl }}/about">About us</a>
 					</div>
 				</div>
 			</div>
@@ -76,23 +76,21 @@ title: Welcome
 
 
 <div class="container">
-	<h2 class="editable">Past Events</h2>
-	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a>
-	</p>
+	<h2>Past Events</h2>
 	<div class="posts">
-		{% for post in site.posts %}
+		{% for post in site.posts limit:2 offset:site.posts.size-2 %}
 		<div class="post">
-			<div class="image" style="background-image: url({{ post.featured_image}})"></div>
+			<a href="{{ post.url }}"><div class="image" style="background-image: url({{ post.featured_image}})"></div></a>
 			<div class="post-content">
 				<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
 				<h3>{{ post.title }}</h3>
-
-				{{ post.content }}
-				<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}"
-						class="btn"><strong>&#9998;</strong> Edit Update</a></p>
+				<p class="post-teaser">{{ post.teaser }}</p>
 			</div>
 		</div>
 		{% endfor %}
+	</div>
+	<div style="text-align: right;">
+		<a href="{{ site.baseurl }}/past-events" style="color: #20ca5a;">See more..</a>
 	</div>
 </div>
 
