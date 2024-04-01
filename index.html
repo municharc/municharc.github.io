@@ -26,7 +26,6 @@ title: Welcome
 
 <div class="container">
 	<h2 class="editable" style="text-align: center;">What we do</h2>
-
 	<ul class="thirds">
 		<li>
 			<div class="image">
@@ -75,12 +74,6 @@ title: Welcome
 	</div>
 </div>
 
-{% jekyllgram 9 %}
-<a text-align="center" href="{{ photo.permalink }}" title="{{ photo.caption }}" id="IG-{{ photo.id }}">
-	<img src="{{ photo.media_url }}" title="{{ photo.caption }}" width="250" height="250" />
-</a>
-{% endjekyllgram %}
-
 
 <div class="container">
 	<h2 class="editable">Past Events</h2>
@@ -103,7 +96,26 @@ title: Welcome
 	</div>
 </div>
 
-<div class="darker" id="join">
+<div class="darker">
+	<div class="container" >
+		<h2 class="editable">Instagram</h2>
+		<p class="editable" style="text-align: center;">
+			<a style="color:#20ca5a;"href="">Follow us</a> on Instagram for the latest updates.
+		</p>
+		<div class="instagram-feed" style=" 
+		margin-left: 80px;
+		justify-content: center;
+		align-items: center;">
+		{% jekyllgram 6 %}
+		<a text-align="center" href="{{ photo.permalink }}" title="{{ photo.caption }}" id="IG-{{ photo.id }}">
+		<img src="{{ photo.media_url }}" title="{{ photo.caption }}" width="250" height="250"/>
+		</a>
+		{% endjekyllgram %}
+		</div>
+	</div>
+</div>
+
+<div id="join">
 	<div class="container">
 		<h2 class="editable">Join us</h2>
 		<p class="editable" style="text-align: center;">Sign up to hear the latest news and progress in our fight for
@@ -114,4 +126,5 @@ title: Welcome
 		</form>
 	</div>
 </div>
+
 </div>
