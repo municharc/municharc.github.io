@@ -39,7 +39,8 @@ header {
 	}
 }
 
-header, nav {
+header,
+nav {
 	.container {
 		padding-top: 0;
 		padding-bottom: 0;
@@ -60,6 +61,7 @@ nav .button {
 	@media #{$desktop} {
 		display: flex;
 	}
+
 	margin: 90px -15px 0 -15px;
 	padding: 0;
 	list-style: none;
@@ -71,6 +73,7 @@ nav .button {
 		border: 1px solid #dfdfdf;
 		border-radius: 3px;
 		padding: 0 30px 25px 30px;
+
 		@media #{$desktop} {
 			width: 33%;
 			margin: 0 15px;
@@ -98,6 +101,7 @@ nav .button {
 		}
 	}
 }
+
 blockquote {
 	padding: 0;
 	margin: 120px 0 70px 0;
@@ -111,7 +115,7 @@ blockquote {
 		position: relative;
 		font-size: 1.3em;
 		text-align: center;
-		box-shadow: 0 20px 100px 0 rgba(0,0,0,0.1);
+		box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.1);
 		color: #000;
 		font-style: italic;
 
@@ -163,6 +167,7 @@ blockquote {
 		width: 70px;
 		margin: 0 0 0 15px;
 		vertical-align: middle;
+
 		img {
 			max-width: 100%;
 			border-radius: 200px;
@@ -179,7 +184,8 @@ footer {
 
 	padding: 40px 0;
 
-	&, a {
+	&,
+	a {
 		color: #8e8e8e;
 	}
 
@@ -196,7 +202,8 @@ footer {
 		padding: 0;
 	}
 
-	p, address {
+	p,
+	address {
 		font-size: .9em;
 	}
 
@@ -220,11 +227,13 @@ footer {
 			display: flex;
 			align-items: center;
 		}
+
 		div {
 			@media #{$desktop} {
 				width: 33%;
 				margin: 0;
 			}
+
 			margin: 20px 0;
 			box-sizing: content-box;
 			padding: 0 25px;
@@ -239,6 +248,7 @@ footer {
 	background: #000;
 	text-align: center;
 	font-size: .8em;
+
 	a {
 		color: #8e8e8e;
 		text-decoration: none;
@@ -253,7 +263,9 @@ footer {
 	@media #{$desktop} {
 		display: flex;
 	}
+
 	margin: 0 -20px;
+
 	.post {
 		flex: 1;
 		border: 1px solid #eee;
@@ -276,6 +288,10 @@ footer {
 
 		.post-content {
 			padding: 20px;
+		}
+
+		.post-teaser {
+			color: grey;
 		}
 
 		.date {
@@ -309,8 +325,9 @@ footer {
 }
 
 .editor-link {
- 	display: none;
+	display: none;
 	margin-top: 0;
+
 	.btn {
 		border: 0;
 		border-radius: 2px;
@@ -344,7 +361,8 @@ footer {
 		display: flex;
 		margin: 0 -30px;
 		align-items: center;
-		& > div {
+
+		&>div {
 			flex: 1;
 			padding: 0 30px;
 		}
@@ -358,4 +376,46 @@ footer {
 .darker {
 	background: #f8fafb;
 	padding: 60px 0;
+}
+
+
+
+.instagram-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.instagram-container a {
+	flex: 1;
+	margin: 5px;
+	width: calc(33.33% - 10px);
+	/* Adjusted width for three images per row */
+	max-width: 300px;
+	/* Added to limit width */
+	height: 300px;
+	/* Set a fixed height for each image */
+	overflow: hidden;
+	/* Hide any overflow if the image is larger */
+}
+
+.instagram-container img {
+	width: 100%;
+	height: 100%;
+	/* Changed height to maintain aspect ratio */
+	object-fit: cover;
+	/* Cover the entire container even if the aspect ratio is different */
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+	.instagram-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.instagram-container a {
+		width: calc(100% - 10px);
+		/* Adjusted width for one image per row */
+	}
 }
