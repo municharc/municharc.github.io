@@ -115,3 +115,17 @@ form {
 		background: darken($brand-color, 5%);
 	}
 }
+
+.fade-in, .fade-in-auto{
+    opacity: 0; 
+}
+
+.fade-in.appear, .fade-in-auto.appear {
+    opacity: 1;
+	transition: 500ms ease-in opacity;
+	-webkit-trasiiton: 500ms ease-in opacity;
+	-moz-transition: 500ms ease-in opacity;
+	-o-transition: 500ms ease-in opacity;
+	-ms-transition: 500ms ease-in opacity;
+
+}

@@ -3,7 +3,7 @@ layout: default
 title: Welcome
 ---
 <header>
-	<div class="container">
+	<div class="container fade-in-auto">
 		<div class="column">
 			<div>
 				<h1 style="color:#26865b;">Munich Animal Rights Club</h1>
@@ -24,46 +24,45 @@ title: Welcome
 	</div>
 </header>
 
-
-<div class="container">
+<div class="container fade-in-auto">
 	<h2 style="color:#26865b"><i class="fa-solid fa-star"></i> Who we are</h2>
 	<p align="center">We're a university group of animal rights advocates from Munich. Animal suffering is an often
 		overlooked issue worldwide, and we believe we can drive meaningful changes, both locally and globally.</p>
 </div>
 
-<div class="darker">
+<div class="darker fade-in">
 	<div class="container">
-		<h2 class="editable" style="text-align: center; color: #26865b;"> <i
+		<h2 style="text-align: center; color: #26865b;"> <i
 				class="fa-solid fa-wand-magic-sparkles"></i> What we do</h2>
 		<ul class="thirds">
 			<li>
 				<div class="image">
 					<img src="images/info-icon.svg" height="64px" width="64px" />
 				</div>
-				<h3 class="editable">Info Events</h3>
-				<p class="editable"> Guest Talks <br> Documentary Screenings <br> Nutrition Advice </p>
+				<h3>Info Events</h3>
+				<p> Guest Talks <br> Documentary Screenings <br> Nutrition Advice </p>
 			</li>
 
 			<li>
 				<div class="image">
 					<img src="images/activism-icon.svg" height="64px" width="64px">
 				</div>
-				<h3 class="editable">Activism</h3>
-				<p class="editable">Campus Advocacy <br> Workshops <br> Sanctuary Visits</p>
+				<h3>Activism</h3>
+				<p >Campus Advocacy <br> Workshops <br> Sanctuary Visits</p>
 			</li>
 
 			<li>
 				<div class="image">
 					{% include icons/site.html icon="population" %}
 				</div>
-				<h3 class="editable">Socials</h3>
-				<p class="editable"> Film Screenings <br> Game Nights <br> Potlucks</p>
+				<h3>Socials</h3>
+				<p> Film Screenings <br> Game Nights <br> Potlucks</p>
 			</li>
 		</ul>
 	</div>
 </div>
 
-<div class="container" id="next-event" style="display: flex;
+<div class="container fade-in" id="next-event" style="display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;">
@@ -82,9 +81,7 @@ title: Welcome
 	</div>
 </div>
 
-
-
-<div class="darker">
+<div class="darker fade-in">
 	<div class="container">
 		<h2 style="color:#26865b"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</h2>
 		<p style="text-align: center;">
@@ -101,9 +98,8 @@ title: Welcome
 	</div>
 </div>
 
-
 <div id="join">
-	<div class="container" style="text-align: center;">
+	<div class="container fade-in" style="text-align: center;">
 		<h2 style="color: #26865b;"><i class="fa-solid fa-door-open"></i> Join us!</h2>
 		<p style="text-align: center;">To join us simply come to our next welcome event or sign up using the link below.
 		</p>
@@ -115,4 +111,26 @@ title: Welcome
 	</div>
 </div>
 
-</div>
+<script>
+
+const autoFadeElements = document.querySelectorAll('.fade-in-auto');
+autoFadeElements.forEach(element => {
+	setTimeout(() => {
+		element.classList.add('appear');
+	}, 500);
+});
+
+function handleScroll() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) { // Element is 80% within viewport
+            element.classList.add('appear');
+        }
+    });
+}
+
+window.addEventListener('scroll', handleScroll);
+
+</script>
+
