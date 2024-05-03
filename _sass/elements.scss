@@ -116,6 +116,7 @@ form {
 	}
 }
 
+@media (max-width: 768px) {
 .fade-in, .fade-in-auto{
     opacity: 0; 
 }
@@ -128,4 +129,5 @@ form {
 	-o-transition: 500ms ease-in opacity;
 	-ms-transition: 500ms ease-in opacity;
 
+}
 }
