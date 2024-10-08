@@ -70,7 +70,7 @@ nav .button {
 		box-sizing: border-box;
 		margin: 70px 0px;
 		width: 100%;
-		border: 1px solid #dfdfdf;
+		border: 1px solid $white;
 		border-radius: 3px;
 		padding: 0 30px 25px 30px;
 
@@ -87,7 +87,7 @@ nav .button {
 			background: white;
 			margin-top: -40px;
 			padding: 10px;
-			box-shadow: 2px 7px 39px 9px #f7f7f7;
+			box-shadow: 2px 7px 39px 9px $light-black;
 			border-radius: 50px;
 		}
 
@@ -96,7 +96,6 @@ nav .button {
 		}
 
 		svg {
-			fill: $brand-color;
 			padding: 5px;
 		}
 	}
@@ -116,7 +115,7 @@ blockquote {
 		font-size: 1.3em;
 		text-align: center;
 		box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.1);
-		color: #000;
+		color: $black;
 		font-style: italic;
 
 		&::before {
@@ -125,7 +124,7 @@ blockquote {
 
 			font-size: 90px;
 			font-weight: bold;
-			color: $brand-color;
+			color: $dark-green;
 
 			position: absolute;
 			left: 0;
@@ -142,7 +141,7 @@ blockquote {
 			margin-left: -30px;
 			border-width: 30px 30px 0;
 			border-style: solid;
-			border-color: #ffffff transparent;
+			border-color: $white transparent;
 			display: block;
 			width: 0;
 		}
@@ -180,20 +179,20 @@ blockquote {
 }
 
 footer {
-	background: #000;
+	background: $black;
 
 	padding: 40px 0;
 
 	&,
 	a {
-		color: #8e8e8e;
+		color: $dark-white;
 	}
 
 	a:hover {
-		color: #fff;
+		color: $white;
 
 		svg {
-			fill: #fff;
+			fill: $white;
 		}
 	}
 
@@ -208,7 +207,7 @@ footer {
 	}
 
 	svg {
-		fill: #8e8e8e;
+		fill: $dark-white;
 		height: 20px;
 		position: relative;
 		top: 4px;
@@ -218,7 +217,7 @@ footer {
 		text-decoration: none;
 
 		svg:hover {
-			fill: #fff;
+			fill: $white;
 		}
 	}
 
@@ -245,16 +244,16 @@ footer {
 .copyright {
 	padding: 5px 0;
 	margin: 0;
-	background: #000;
+	background: $black;
 	text-align: center;
 	font-size: .8em;
 
 	a {
-		color: #8e8e8e;
+		color: $dark-white;
 		text-decoration: none;
 
 		&:hover {
-			color: #fff;
+			color: $white;
 		}
 	}
 }
@@ -270,7 +269,7 @@ footer {
 		flex: 1;
 		border: 1px solid #eee;
 		margin: 0 0 50px 0;
-		background: #fff;
+		background: $white;
 		border-radius: 3px;
 
 		@media #{$desktop} {
@@ -374,8 +373,29 @@ footer {
 }
 
 .darker {
-	background: #f8fafb;
+	background: $dark-green;
+	color: $white;
 	padding: 60px 0;
+
+	h2,h3 {
+		color: $white;
+	}
+}
+
+.next-event-info {
+
+	// select the first p element which has the event description and give it some extra margin
+	:nth-child(2) {
+		margin: 1rem 0 1rem 0;
+	}
+
+	p {
+		span {
+			font-weight: 600;
+		}
+
+		margin: 0.25rem 0 0.25rem 0;
+	}
 }
 
 .instagram-container {
@@ -415,5 +435,9 @@ footer {
 	.instagram-container a {
 		width: calc(100% - 10px);
 		/* Adjusted width for one image per row */
+	}
+
+	.join-btn {
+		margin-bottom: 2rem;
 	}
 }

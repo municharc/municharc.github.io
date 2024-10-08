@@ -1,8 +1,9 @@
 html, body {
 	padding: 0;
 	margin: 0;
-	font-family: 'Open Sans', sans-serif;
-	color: #333;
+	font-family: Nunito, sans-serif;
+	color: $light-black;
+	background: $white;
 	min-width: 380px;
 }
 
@@ -17,33 +18,43 @@ hr {
 	margin-bottom: 50px;
 }
 
+h1, h2, h3 {
+	font-family: Ubuntu, sans-serif;
+}
+
 h1 {
 	padding: 0;
 	margin: 0 0 20px 0;
 	font-size: 3em;
+	color: $dark-green
 }
 
 h2 {
 	font-size: 2.3em;
 	margin: 0 0 30px 0;
 	text-align: center;
+	color: $green;
 }
 
 h3 {
 	font-size: 1.8em;
 	margin: 20px 0 20px 0;
+	color: $green;
 }
 
 p {
 	font-size: 1.3em;
 	line-height: 1.4em;
-	color: #888;
+}
+
+a {
+	color: $white;
 }
 
 nav {
 	padding: 30px 0;
 	svg {
-		fill: $brand-color;
+		fill: $dark-green;
 		height: 72px;
 	}
 }
@@ -70,7 +81,7 @@ form {
 		}
 
 		&:focus {
-			box-shadow: 0 0 5px 0 $brand-color;
+			box-shadow: 0 0 5px 0 $dark-green;
 			outline: none;
 		}
 	}
@@ -80,7 +91,7 @@ form {
 		border-bottom-right-radius: 30px;
 
 		&:hover {
-			background: darken($brand-color, 5%);
+			background: darken($dark-green, 5%);
 		}
 	}
 }
@@ -99,8 +110,8 @@ form {
 }
 
 .button a, input[type="submit"] {
-	background: $brand-color;
-	color: #fff;
+	background: $green;
+	color: $white;
 	cursor: pointer;
 	font-weight: bold;
 }
@@ -112,7 +123,7 @@ form {
 	transition: 200ms ease-in background;
 
 	&:hover {
-		background: darken($brand-color, 5%);
+		background: darken($green, 5%);
 	}
 }
 
@@ -130,4 +141,10 @@ form {
 	-ms-transition: 500ms ease-in opacity;
 
 }
+}
+
+.image {
+	svg {
+		fill: $green;
+	}
 }
