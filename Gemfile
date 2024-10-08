@@ -8,3 +8,4 @@ group :jekyll_plugins do
 end
 
 gem "webrick", "~> 1.8"
+gem 'sass-embedded', '~> 1.54.0'
