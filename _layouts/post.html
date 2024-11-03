@@ -5,9 +5,11 @@ layout: default
 	<div class="container">
 		<h2>{{ page.title }}</h2>
 		<div style="text-align: center;">
-			<img src="{{ page.featured_image }}" alt="{{ page.title }}"/>
+			<!-- <img src="{{ page.featured_image }}" alt="{{ page.title }}"/> -->
 		</div>
 		<h3>{{ page.date | date: '%B %d, %Y' }}</h2>
-		{{ content }}
+		<div class="post">
+			{{ content }}
+		</div>
 	</div>
 </section>
