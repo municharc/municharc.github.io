@@ -4,8 +4,8 @@ title: Events
 permalink: /events.html
 ---
 
-<div class="container fade-in-auto">
-	<div class="logo-container">
+<div class="container">
+	<div class="logo-container fade-in-auto">
 		<a href="{{ site.baseurl }}/">
 			<img src="{{ site.baseurl }}/images/marc-logo-new-darkgreen.svg" alt="MARC Logo" class="home-logo">
 			<div class="back-icon">
@@ -14,10 +14,10 @@ permalink: /events.html
 		</a>
 	</div>
 	
-	<h1>Events</h1>
+	<h1 class="fade-in-auto">Events</h1>
 	
 	<!-- Next Upcoming Event Section -->
-	<section id="next-event" class="event-section">
+	<section id="next-event" class="event-section fade-in">
 		<h2><i class="fa-solid fa-calendar-week"></i> Next Event</h2>
 		<div class="next-event-info">
 			{% include next_event.html %}
@@ -25,16 +25,16 @@ permalink: /events.html
 	</section>
 	
 	<!-- Upcoming Events with Google Calendar -->
-	<section id="upcoming-events" class="event-section">
+	<section id="upcoming-events" class="event-section fade-in">
 		<h2><i class="fa-solid fa-calendar-days"></i> Upcoming Events</h2>
 		<p>Check out all our upcoming events in our calendar:</p>
 		<div class="calendar-container">
-			<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBerlin&showPrint=0&hl=en_GB&mode=AGENDA&title=Munich%20Animal%20Rights%20Club&showNav=0&src=NmQyY2VjZjBlYTVjMmNkZjY4MDllNTg0N2Q1MzVmODBiNDMwZmM3MWEzNWFkN2VjNTFjMmYxM2YyYjk2NTM5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&hl=en_GB&showNav=0&showDate=0&showCalendars=0&src=NmQyY2VjZjBlYTVjMmNkZjY4MDllNTg0N2Q1MzVmODBiNDMwZmM3MWEzNWFkN2VjNTFjMmYxM2YyYjk2NTM5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043"></iframe>
 		</div>
 	</section>
 	
 	<!-- Special Events -->
-	<section id="special-events" class="event-section">
+	<section id="special-events" class="event-section fade-in">
 		<h2><i class="fa-solid fa-star"></i> Special Events</h2>
 		<div class="special-events-container">
 			<div class="special-event">
@@ -47,7 +47,7 @@ permalink: /events.html
 	</section>
 	
 	<!-- Past Events -->
-	<section id="past-events" class="event-section">
+	<section id="past-events" class="event-section fade-in">
 		<h2><i class="fa-solid fa-clock-rotate-left"></i> Past Events</h2>
 		<div class="posts grid-layout">
 			{% for post in site.posts %}
@@ -65,6 +65,18 @@ permalink: /events.html
 </div>
 
 <style>
+/* Fade-in animations */
+.fade-in, .fade-in-auto {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.appear, .fade-in-auto.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -140,6 +152,19 @@ permalink: /events.html
 
 .calendar-container {
 	margin-top: 1rem;
+	position: relative;
+	overflow: hidden;
+	padding-top: 75%; /* 4:3 aspect ratio */
+	width: 100%;
+}
+
+.calendar-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
 }
 
 .special-events-container {
@@ -212,3 +237,28 @@ permalink: /events.html
 	margin: 0;
 }
 </style>
+
+<script>
+// Auto fade-in for elements marked with fade-in-auto
+const autoFadeElements = document.querySelectorAll('.fade-in-auto');
+autoFadeElements.forEach(element => {
+    setTimeout(() => {
+        element.classList.add('appear');
+    }, 500);
+});
+
+// Scroll-based fade-in for elements marked with fade-in
+function handleScroll() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) { // Element is 80% within viewport
+            element.classList.add('appear');
+        }
+    });
+}
+
+window.addEventListener('scroll', handleScroll);
+// Initial check for elements in viewport
+handleScroll();
+</script>
