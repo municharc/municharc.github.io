@@ -12,6 +12,9 @@ title: Munich Animal Rights Club
 					<div class="button join-btn">
 						<a href="#join">Join us</a>
 					</div>
+					<div class="button">
+						<a href="{{ site.baseurl }}/events.html">Events</a>
+					</div>
 					<!--<div class="button" id="about">
 						<a href="{{ site.baseurl }}/about">About us</a>
 					</div> -->
@@ -66,16 +69,9 @@ title: Munich Animal Rights Club
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;">
-	<h2 ><i class="fa-solid fa-calendar-plus"></i> Get to know us at our next event!</h2>
-	<div class="next-event-info" style="margin-top: 20px;
-			text-align: center;">
-		<a >
-			<h3>3 Minute Movie - Outreach Event</h3>
-		</a>
-		<p>Our next event is an outreach event in the city center. Contact us for more info!</p>
-		<p><span>Date:</span> 23.03.2025</p>
-		<p><span>Time:</span> 17:30</p>
-		<p><span>Location:</span> In front of Neuhauser Straße 19</p>
+	<h2 ><i class="fa-solid fa-calendar-week"></i> Get to know us at our next event!</h2>
+	<div class="next-event-info" style="margin-top: 20px; text-align: center; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
+		{% include next_event.html %}
 	</div>
 </div>
 
@@ -93,24 +89,24 @@ title: Munich Animal Rights Club
 </div>
 
 <div class="container fade-in">
-	<h2>Past Events</h2>
-	<div class="posts">
-		{% for post in site.posts %}
-		<div class="post">
-			<!-- <div class="image" style="background-image: url({{ post.featured_image}})"></div> -->
+	<h2><i class="fa-solid fa-clock-rotate-left"></i> Past Events</h2>
+	<div class="posts grid-layout">
+		{% for post in site.posts limit:2 %}
+		<a href="{{ post.url }}" class="post-card">
+			{% if post.featured_image %}
+			<div class="image" style="background-image: url({{ post.featured_image }})"></div>
+			{% endif %}
 			<div class="post-content">
 				<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
-				<a href="{{ post.url }}">
-					<h3>{{ post.title }}</h3>
-				</a>
+				<h3>{{ post.title }}</h3>
 				<p class="post-teaser">{{ post.teaser }}</p>
 			</div>
-		</div>
+		</a>
 		{% endfor %}
 	</div>
-	<!-- <div style=" text-align: right;">
-		<a href="{{ site.baseurl }}/past-events" style="color: #20ca5a;">See more..</a>
-	</div> -->
+	<div style="text-align: right; margin-top: 15px;">
+		<a href="{{ site.baseurl }}/events.html#past-events" style="color: #09603F;">See more events...</a>
+	</div> 
 </div>
 
 <!-- <div class="darker fade-in">
@@ -132,7 +128,42 @@ title: Munich Animal Rights Club
 </div>
 </div> -->
 
+<style>
+/* Grid layout for past events */
+.grid-layout {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
 
+.post-card {
+	background-color: #f5f5f5;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: transform 0.3s ease;
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+.post-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+	text-decoration: none;
+	color: inherit;
+}
+
+.post-card .image {
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+	background-position: center;
+}
+
+.post-card .post-content {
+	padding: 15px;
+}
+</style>
 
 <script>
 

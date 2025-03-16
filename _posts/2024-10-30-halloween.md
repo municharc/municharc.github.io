@@ -1,7 +1,7 @@
 ---
 title: Halloween Movie Screening
 date: 2024-10-30
-# featured_image:  https://unsplash.it/570/400?image=1018
+featured_image:  /images/events/halloween/movie-collage.png
 teaser: Do you dare to watch?
 ---
 
