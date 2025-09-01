@@ -22,12 +22,22 @@ module Jekyll
       begin
         events = fetch_upcoming_events(calendar_id, api_key)
         next_event = find_next_event(events)
-        
+
         if next_event
           site.data['next_event'] = format_event(next_event)
           Jekyll.logger.info "Next event updated: #{next_event['summary']}"
         else
-          Jekyll.logger.warn "No upcoming events found"
+          Jekyll.logger.warn "No upcoming events found. Falling back to most recent past event."
+
+          past_events = fetch_past_events(calendar_id, api_key)
+          last_event = find_most_recent_past_event(past_events)
+
+          if last_event
+            site.data['next_event'] = format_event(last_event)
+            Jekyll.logger.info "Showing most recent past event: #{last_event['summary']}"
+          else
+            Jekyll.logger.warn "No past events found in the lookback window"
+          end
         end
       rescue => e
         Jekyll.logger.error "Error fetching calendar events: #{e.message}"
@@ -68,6 +78,40 @@ module Jekyll
         start_time = parse_event_time(event)
         start_time && start_time > now
       end
+    end
+
+    def fetch_past_events(calendar_id, api_key)
+      # Look back up to 12 months for past events
+      time_min = (Time.now - (12 * 30 * 24 * 60 * 60)).iso8601 # ~12 months ago
+      time_max = Time.now.iso8601
+
+      url = URI("https://www.googleapis.com/calendar/v3/calendars/#{calendar_id}/events")
+      url.query = URI.encode_www_form({
+        key: api_key,
+        timeMin: time_min,
+        timeMax: time_max,
+        singleEvents: true,
+        orderBy: 'startTime',
+        maxResults: 250
+      })
+
+      response = Net::HTTP.get_response(url)
+
+      if response.code == '200'
+        data = JSON.parse(response.body)
+        return data['items'] || []
+      else
+        raise "API request failed with status #{response.code}: #{response.body}"
+      end
+    end
+
+    def find_most_recent_past_event(events)
+      now = Time.now
+      past_events = events.map { |e| [e, parse_event_time(e)] }
+                          .select { |(_, t)| t && t <= now }
+      return nil if past_events.empty?
+
+      past_events.max_by { |(_, t)| t }.first
     end
 
     def parse_event_time(event)
