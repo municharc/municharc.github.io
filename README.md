@@ -12,6 +12,25 @@ Install the dependencies with [Bundler](http://bundler.io/):
 $ bundle install
 ~~~
 
+If you are on linux and the installation fails, you could try this Gemfile instead:
+```bash
+source 'https://rubygems.org'
+
+gem 'jekyll', '~> 4.4'
+
+group :jekyll_plugins do
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-sitemap'
+end
+
+gem "webrick", "~> 1.9"
+gem 'sass-embedded', '~> 1.97'
+
+gem "logger", "~> 1.7"
+
+gem "erb", "~> 6.0"
+```
+
 Run `jekyll` commands through Bundler to ensure you're using the right versions:
 
 ~~~bash
