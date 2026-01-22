@@ -12,7 +12,7 @@ Install the dependencies with [Bundler](http://bundler.io/):
 $ bundle install
 ~~~
 
-If you are on linux and the installation fails, you could try this Gemfile instead:
+If you are on linux and the installation fails, you can try upgrading the gems, for example with this Gemfile:
 ```bash
 source 'https://rubygems.org'
 
