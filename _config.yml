@@ -24,7 +24,7 @@ google_calendar_api_key: "" # Add your Google Calendar API key here
 # -----
 # Build
 
-timezone: Etc/UTC
+timezone: Europe/Berlin
 
 collections:
   staff_members:
