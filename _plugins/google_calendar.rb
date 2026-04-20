@@ -2,14 +2,16 @@ require 'net/http'
 require 'json'
 require 'uri'
 require 'time'
+require 'tzinfo'
 
 module Jekyll
   class GoogleCalendarGenerator < Generator
     safe true
     priority :high
 
+    BERLIN_TZ = TZInfo::Timezone.get('Europe/Berlin')
+
     def generate(site)
-      ENV['TZ'] = 'Europe/Berlin'
       # Get calendar ID from config, fallback to the original
       calendar_id = site.config['google_calendar_id'] || '6d2cecf0ea5c2cdf6809e5847d535f80b430fc71a35ad7ec51c2f13f2b9653990@group.calendar.google.com'
       # Try environment variable first, then config file
@@ -130,6 +132,10 @@ module Jekyll
     def format_event(event)
       start_time = parse_event_time(event)
       location = event['location'] || 'TBA'
+
+      if start_time
+        start_time = BERLIN_TZ.utc_to_local(start_time.utc)
+      end
       
       formatted_event = {
         'title' => event['summary'] || 'Untitled Event',
