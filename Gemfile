@@ -9,3 +9,4 @@ end
 
 gem "webrick", "~> 1.8"
 gem 'sass-embedded', '~> 1.54.0'
+gem 'tzinfo'
