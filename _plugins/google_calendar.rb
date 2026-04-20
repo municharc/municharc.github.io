@@ -9,6 +9,7 @@ module Jekyll
     priority :high
 
     def generate(site)
+      ENV['TZ'] = 'Europe/Berlin'
       # Get calendar ID from config, fallback to the original
       calendar_id = site.config['google_calendar_id'] || '6d2cecf0ea5c2cdf6809e5847d535f80b430fc71a35ad7ec51c2f13f2b9653990@group.calendar.google.com'
       # Try environment variable first, then config file
